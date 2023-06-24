@@ -1,4 +1,4 @@
-name: Test Workflow
+name: Test
 
 on:
   pull_request:
@@ -7,8 +7,7 @@ on:
      - dev
 
 jobs:
-  laravel-vue-test:
-
+  job:
     runs-on: ubuntu-latest
 
     steps:
