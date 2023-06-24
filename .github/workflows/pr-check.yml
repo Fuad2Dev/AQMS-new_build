@@ -1,0 +1,25 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main  # List of allowed branches
+
+jobs:
+  pr-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check branch name
+        run: |
+          # Get the base branch name of the pull request
+          PR_BRANCH=$(echo "${{ github.head_ref }}" | cut -d'/' -f2)
+
+          # List the allowed branches
+          ALLOWED_BRANCHES=("branch1" "branch2" "branch3")
+
+          # Check if the PR branch is in the allowed branches
+          if [[ ! " ${ALLOWED_BRANCHES[@]} " =~ " ${PR_BRANCH} " ]]; then
+            echo "Error: Pull requests from the branch '${PR_BRANCH}' are not allowed."
+            exit 1
+          fi
