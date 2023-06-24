@@ -1,11 +1,11 @@
-name: Laravel
+name: Test Workflow
 
 on:
   pull_request:
     branches: [ "main" ]
 
 jobs:
-  laravel-tests:
+  laravel-vue-test:
 
     runs-on: ubuntu-latest
 
