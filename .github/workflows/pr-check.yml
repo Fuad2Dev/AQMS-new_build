@@ -1,4 +1,4 @@
-name: Pull Request
+name: PR Check
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - main  # List of allowed branches
 
 jobs:
-  pr-checks:
+  allow-only-dev-to-main:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,7 @@ jobs:
           PR_BRANCH=$(echo "${{ github.head_ref }}" | cut -d'/' -f2)
 
           # List the allowed branches
-          ALLOWED_BRANCHES=("branch1" "branch2" "branch3")
+          ALLOWED_BRANCHES=("dev")
 
           # Check if the PR branch is in the allowed branches
           if [[ ! " ${ALLOWED_BRANCHES[@]} " =~ " ${PR_BRANCH} " ]]; then
