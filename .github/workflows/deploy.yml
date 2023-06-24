@@ -1,4 +1,4 @@
-name: Laravel
+name: Deploy
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  laravel-tests:
+  job:
 
     runs-on: ubuntu-latest
 

@@ -1,12 +1,13 @@
-name: Laravel
+name: Test
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches:
+     - main
+     - dev
 
 jobs:
-  laravel-tests:
-
+  job:
     runs-on: ubuntu-latest
 
     steps:
