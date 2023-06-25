@@ -19,7 +19,7 @@ jobs:
           PR_BRANCH=$(echo "${{ github.head_ref }}" | cut -d'/' -f2)
 
           # List the allowed branches
-          ALLOWED_BRANCHES=("Fuad2Dev-patch-4" "branch2" "branch3")
+          ALLOWED_BRANCHES=("dev")
 
           # Check if the PR branch is in the allowed branches
           if [[ ! " ${ALLOWED_BRANCHES[@]} " =~ " ${PR_BRANCH} " ]]; then
