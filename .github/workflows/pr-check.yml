@@ -1,0 +1,25 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pr-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check branch name
+        run: |
+          # Get the base branch name of the pull request
+          PR_BRANCH=$(echo "${{ github.head_ref }}" | cut -d'/' -f2)
+
+          # List the allowed branches
+          ALLOWED_BRANCHES=("dev")
+
+          # Check if the PR branch is in the allowed branches
+          if [[ ! " ${ALLOWED_BRANCHES[@]} " =~ " ${PR_BRANCH} " ]]; then
+            echo "Error: A pull request from the '${PR_BRANCH}' branch into main is not allowed."
+            exit 1
+          fi
