@@ -23,6 +23,6 @@ jobs:
 
           # Check if the PR branch is in the allowed branches
           if [[ ! " ${ALLOWED_BRANCHES[@]} " =~ " ${PR_BRANCH} " ]]; then
-            echo "Error: Pull requests from the branch '${PR_BRANCH}' are not allowed."
+            echo "Error: A pull request from the '${PR_BRANCH}' branch into main is not allowed."
             exit 1
           fi
