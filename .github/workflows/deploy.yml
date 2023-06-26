@@ -34,6 +34,7 @@ jobs:
         with:
           user: ${{ secrets.SERVER_USER }}
           host: ${{ secrets.SERVER_HOST }}
+          port: ${{ secrets.SERVER_PORT }}
           path: ${{ secrets.SERVER_PATH }}
           owner: www
           commands: "# Customer commands"
