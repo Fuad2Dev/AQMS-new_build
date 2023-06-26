@@ -29,8 +29,8 @@ jobs:
 
         run: npm run build
 
-      - name: Deploy to Server
-        uses: charliex2/laravel-action@master
+      - name: Deploy To production
+        uses: hypertech-lda/laravel-auto-deploy@1.1
         with:
           user: ${{ secrets.SERVER_USER }}
           host: ${{ secrets.SERVER_HOST }}
