@@ -30,16 +30,12 @@ jobs:
         run: npm run build
 
       - name: Deploy To production
-        uses: hypertech-lda/laravel-auto-deploy@1.1
+        uses: D3rHase/rsync-deploy-action@latest
         with:
-          user: ${{ secrets.SERVER_USER }}
-          host: ${{ secrets.SERVER_HOST }}
-          port: ${{ secrets.SERVER_PORT }}
-          path: ${{ secrets.SERVER_PATH }}
-          owner: ${{ secrets.SERVER_USER }}
-          commands: "# Customer commands"
-        env:
-          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-          # provided private key instead
+          HOST: ${{secrets.HOST}}                             # Remote server address / ip - Required: true
+          PORT: ${{secrets.PORT}}                             # Remote server port -  Default: 22 - Required: false
+          USER: ${{secrets.USER}}                             # Remote server user - Required: true
+          PRIVATE_SSH_KEY: ${{secrets.DEPLOY_KEY}}       # Private ssh key registered on the remote server - Required: true
+          SERVER_PATH: ${{secrets.SERVER_PATH}}   
 
 
