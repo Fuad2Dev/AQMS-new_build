@@ -29,8 +29,8 @@ jobs:
 
         run: npm run build
 
-      - name: Deploy To production
-        uses: hypertech-lda/laravel-auto-deploy@1.1
+      - name: Deploy to Server
+        uses: charliex2/laravel-action@master
         with:
           user: ${{ secrets.SERVER_USER }}
           host: ${{ secrets.SERVER_HOST }}
@@ -38,7 +38,6 @@ jobs:
           path: ${{ secrets.SERVER_PATH }}
           owner: ${{ secrets.SERVER_USER }}
           commands: "# Customer commands"
-          # default: php artisan migrate && php artisan cache:clear && php artisan route:cache && php artisan config:cache"
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
 
