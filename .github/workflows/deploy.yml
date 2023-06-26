@@ -40,5 +40,6 @@ jobs:
           commands: "# Customer commands"
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          # provided private key instead
 
 
