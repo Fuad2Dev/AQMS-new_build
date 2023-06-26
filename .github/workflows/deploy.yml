@@ -9,17 +9,26 @@ jobs:
   laravel-rsync-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@master
+      - name: Setup Environment
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+      - name: Install Composer Packages
+        run: composer install --no-dev
+      - name: Setup Node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '18'
+          check-latest: true
+      - name: Install NPM dependencies
 
-      - uses: MilesChou/composer-action/8.2/install@master
-      - run: |
-          cp .env.example .env
-          php artisan key:generate --ansi
+        run: npm ci
 
-      - name: Pull Docker image
-        run: |
-          docker pull "node:lts-slim"
-          npm install && npm run production
+      - name: Compile assets for production
+
+        run: npm run build
 
       - name: Laravel Rsync Deploy
         uses: SHSharkar/Laravel-Rsync-Deploy@master
