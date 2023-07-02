@@ -1,11 +1,12 @@
-name: Deploy to production
+name: Laravel Rsync Deploy
+
 on:
   push:
-    branches: [ "develop" ]
+    branches:
+      - main
 
 jobs:
-  build:
-    name: Buid & Deploy
+  laravel-rsync-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -29,16 +30,12 @@ jobs:
 
         run: npm run build
 
-      - name: Deploy To production
-        uses: hypertech-lda/laravel-auto-deploy@1.1
-        with:
-          user: ${{ secrets.SERVER_USER }}
-          host: ${{ secrets.SERVER_HOST }}
-          path: ${{ secrets.SERVER_PATH }}
-          owner: www
-          commands: "# Customer commands"
-          # default: php artisan migrate && php artisan cache:clear && php artisan route:cache && php artisan config:cache"
+      - name: Laravel Rsync Deploy
+        uses: SHSharkar/Laravel-Rsync-Deploy@master
         env:
-          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-
-
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          ARGS: "--ignore-times --compress --verbose --exclude=.git --exclude=.github --exclude=node_modules --no-perms --no-owner --no-group --recursive"
+          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
+          REMOTE_HOST_PORT: ${{ secrets.SERVER_PORT }}
+          REMOTE_USER: ${{ secrets.SERVER_USER }}
+          TARGET_DIRECTORY: ${{ secrets.SERVER_PATH }}
