@@ -24,6 +24,10 @@ const submit = () => {
     <AuthLayout>
         <Head title="Register" />
 
+        <div v-if="!status" class="mb-4 font-medium text-sm text-green-600">
+            {{ status }} hdkdk
+        </div>
+
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="name" value="Name" />
