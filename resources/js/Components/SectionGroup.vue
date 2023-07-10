@@ -5,7 +5,7 @@ import { ref } from "vue";
 const drop = ref(false);
 </script>
 <template>
-    <div class="grid grid-cols-4">
+    <div class="grid grid-cols-4 min-w-max">
         <div class=" col-span-4 grid grid-cols-4">
             <div class="flex">
                 <div @click="drop=!drop"
