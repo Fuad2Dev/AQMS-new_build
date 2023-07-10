@@ -30,10 +30,13 @@ function handleToggle() {
     <div class="h-screen">
         <NavBar @toggle-side-bar="handleToggle" />
         <div class="h-5/6 relative">
-            <!-- side bar 1 -->
             <div
-                class="absolute w-full h-full bg-transparent flex drop-shadow-xl"
+            class="absolute w-full h-full bg-transparent flex drop-shadow-xl"
+            :class="{
+                        'z-50': toggleState === 1 || toggleState === 2,
+                    }"
             >
+            <!-- side bar 1 -->
                 <div
                     class="w-0 bg-white h-auto overflow-y-auto transition-all duration-300 border-r"
                     :class="{
@@ -47,7 +50,7 @@ function handleToggle() {
                 <div
                     class="w-0 bg-white overflow-y-auto transition-all duration-300 border-r space-y-3"
                     :class="{
-                        'w-2/4 px-6': toggleState === 2,
+                        'w-2/4 px-6 z-50': toggleState === 2,
                     }"
                 >
                     <SectionGroup />
