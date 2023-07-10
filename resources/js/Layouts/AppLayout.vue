@@ -28,31 +28,36 @@ function handleToggle() {
 
     <div class="h-screen">
         <NavBar @toggle-side-bar="handleToggle" />
-        <div class="h-5/6 flex">
+        <div class="h-5/6">
             <!-- side bar 1 -->
-            <div
-                class="w-0 h-auto bg-white overflow-y-auto transition-all border-r"
-                :class="{
-                    '!w-1/4': toggleState === 1 || toggleState === 2,
-                }"
-            >
-                <Section icon="iconsminds-check" name="Surveys" />
-                <Section icon="iconsminds-check" name="Surveys" />
+            <div class="absolute w-full h-full bg-transparent flex drop-shadow-xl">
+                <div
+                    class="w-0 bg-white  h-auto  overflow-y-auto transition-all duration-300 border-r"
+                    :class="{
+                        '!w-1/4': toggleState === 1 || toggleState === 2,
+                    }"
+                >
+                    <Section icon="iconsminds-check" name="Surveys" />
+                    <Section icon="iconsminds-check" name="Surveys" />
+                </div>
+                <!-- side bar 2 -->
+                <div
+                    class="w-0 bg-white  overflow-y-auto  transition-all duration-300 border-r space-y-3"
+                    :class="{
+                        'w-2/4 px-6': toggleState === 2,
+                    }"
+                >
+                    <SectionGroup />
+                    <SectionGroup />
+                    <SectionItem icon="simple-icon-eye" name="item" />
+                    <SectionItem icon="simple-icon-eye" name="item" />
+                    <SectionItem icon="simple-icon-eye" name="item" />
+                </div>
             </div>
 
-            <!-- side bar 2 -->
-            <div
-                class="w-0 bg-white overflow-y-auto  transition-all border-r space-y-3"
-                :class="{
-                    'w-2/4 px-6': toggleState === 2,
-                }"
-            >
-                <SectionGroup />
-                <SectionGroup />
-                <SectionItem icon="simple-icon-eye" name="item" />
-                <SectionItem icon="simple-icon-eye" name="item" />
-                <SectionItem icon="simple-icon-eye" name="item" /> 
-            </div>
+            <main>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem eligendi eos, voluptate tempora molestiae iusto, dolorum deserunt voluptatibus nulla, aliquid tenetur corrupti architecto. Quis eum eaque, quam tenetur non nostrum.</p>
+            </main>
         </div>
         
     </div>
