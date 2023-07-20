@@ -27,7 +27,7 @@ function handleToggle() {
         <link rel="stylesheet" href="/icons/simple-line-icons.css" />
     </Head>
 
-    <div class="h-screen">
+    <div class="h-screen w-screen overflow-x-hidden">
         <NavBar @toggle-side-bar="handleToggle" />
         <div class="h-5/6 relative">
             <div
