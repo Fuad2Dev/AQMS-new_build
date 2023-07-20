@@ -36,7 +36,7 @@ function handleToggle() {
                         'z-50': toggleState === 1 || toggleState === 2,
                     }"
             >
-            <!-- side bar 1 -->
+            <!-- left side bar 1 -->
                 <div
                     class="w-0 bg-white h-auto overflow-y-auto transition-all duration-300 border-r"
                     :class="{
@@ -46,7 +46,7 @@ function handleToggle() {
                     <Section icon="iconsminds-check" name="Surveys" />
                     <Section icon="iconsminds-check" name="Surveys" />
                 </div>
-                <!-- side bar 2 -->
+                <!-- left side bar 2 -->
                 <div
                     class="w-0 bg-white overflow-y-auto transition-all duration-300 border-r space-y-3"
                     :class="{
