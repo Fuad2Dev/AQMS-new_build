@@ -6,7 +6,7 @@ import StatBar from "@/Partials/StatBar.vue"
 import { ref } from "vue";
 
 const toggleState = ref(0);
-const showStatBar = ref(true);
+const showStatBar = ref(false);
 let increaseToggleState = true;
 
 function handleToggle() {
